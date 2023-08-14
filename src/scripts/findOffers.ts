@@ -1,10 +1,10 @@
 import { Scrapper } from '../bot/scrapper/scrapper'
 import { ScrapperOptions } from '../bot/scrapper/types'
 
-const findOffers = async () => {
+export const findOffers = async (searchTerm: string) => {
 	console.log('Scrapping...')
 	const options: ScrapperOptions = {
-		searchValue: 'front-end-developer',
+		searchValue: searchTerm,  
 		maxRecords: 10,
 	}
 
@@ -23,7 +23,7 @@ const findOffers = async () => {
 		console.log('SalaryTo:', offer.salaryTo)
 		console.log('Currency:', offer.currency)
 		console.log('OfferURL:', offer.offerURL)
-		console.log('tech:', offer.tech)
+		console.log('technologies:', offer.technologies)
 		console.log('addedAt:', offer.addedAt)
 		console.log('----------')
 	})
@@ -31,4 +31,5 @@ const findOffers = async () => {
 	await scrapper.close()
 }
 
-findOffers()
+const searchTerm = process.argv[2] || 'front-end-developer'; 
+findOffers(searchTerm)

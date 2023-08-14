@@ -11,6 +11,6 @@ export interface JobOffer {
 	salaryTo: string
 	currency: string
 	offerURL: string
-	tech: string[]
+	technologies: string[]
 	addedAt: string
 }

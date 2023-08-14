@@ -19,8 +19,14 @@ export class Scrapper {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
 		const url = `https://www.indeed.com/q-${this.options.searchValue}-jobs.html`
-		await this.page.goto(url)
+		try {
+			await this.page.goto(url)
+		} catch (error) {
+			console.error('Error navigating to the page:', error)
+			throw new Error('Failed to navigate to the page.')
+		}
 	}
+	
 
 	async extractFromElement(element: any | null, selector: string, attribute?: string): Promise<string> {
 		if (!this.page || !element) return ''
@@ -33,7 +39,7 @@ export class Scrapper {
 			return await this.page.evaluate(el => el.textContent.trim(), childElement) //get element content
 		}
 	}
-	async extractTechStack(element: any | null, selector: string): Promise<string[]> {
+	async extractTechStackFromOffer(element: any | null, selector: string): Promise<string[]> {
 		if (!this.page || !element) return []
 		const childElements = await element.$$(selector)
 		return await Promise.all(childElements.map(el => this.page!.evaluate(el => el.textContent.trim(), el)))
@@ -89,7 +95,7 @@ export class Scrapper {
 					salaryTo,
 					currency,
 					offerURL,
-					tech: await this.extractTechStack(offer, '.tech-stack'),
+					technologies: await this.extractTechStackFromOffer(offer, '.tech-stack'),
 					addedAt: postedDate.toISOString().split('T')[0],
 				}
 			})
