@@ -1,4 +1,8 @@
-import puppeteer, { Browser, Page } from 'puppeteer';
+import puppeteer from 'puppeteer-extra';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import { Browser, Page } from 'puppeteer';
+
+puppeteer.use(StealthPlugin());
 
 export abstract class ScrapperBase {
   protected browser: Browser | null = null;
