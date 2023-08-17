@@ -42,35 +42,34 @@ export class ScrapperBulldogJob extends ScrapperBase {
         }
 
 //znajdujemy jeden element <a> w klasie .container ( oferta pracy )
-        // const elementA = await this.page.$('.container a'); 
-        // if (elementA) {
-        //     const link = await elementA.evaluate(node => node.getAttribute('href'));
-        //     // przechodzimy do linku
-        //     await this.page.goto(link, { waitUntil: 'networkidle0' });  // czekamy aż załaduje się cała strona
-        //     // pobieramy content z h1
-        //     const h1Content = await this.page.$eval('h1', h2 => h2.textContent);
-        //     console.log('h1:', h1Content);
-        // } else {
-        //     console.log('nie znaleziono h1');
-        // } // no i to działa pięknie
+        const elementA = await this.page.$('.container a'); 
+        if (elementA) {
+            const link = await elementA.evaluate(node => node.getAttribute('href'));
+            // przechodzimy do linku
+            await this.page.goto(link, { waitUntil: 'networkidle0' });  // czekamy aż załaduje się cała strona
+            // pobieramy content z h1
+            const h1Content = await this.page.$eval('h1', h2 => h2.textContent);
+            console.log('h1:', h1Content);
+        } else {
+            console.log('nie znaleziono h1');
+        } // no i to działa pięknie
         
 
         //teraz spróbujemy znaleźć ich kilka i wyświetlić wszystkie
-        const h1Contents = []; 
+        const h1Contents = [];
         const elementyA = await this.page.$$('.container a');
+        
         for (const elemencik of elementyA) {
-            const newPage = await this.browser.newPage(); 
             try {
                 const link = await elemencik.evaluate(a => a.getAttribute('href'));
-                await newPage.goto(link);
-                const h1Content = await newPage.$eval('h1', h1 => h1.textContent.trim());
+                await this.page.goto(link);
+                const h1Content = await this.page.$eval('h1', h1 => h1.textContent.trim());
                 h1Contents.push(h1Content);
+                await this.page.goBack({ waitUntil: 'networkidle0' });
             } catch (error) {
-                console.error('dupa kościotrupa:', error);
-            } finally {
-                await newPage.close(); 
+                console.error('Error while fetching h1:', error);
             }
-        }
+        }// no tutaj już próbowałem złapać to na wiele sposobów :(
 
 
         const jobOffersLiElements = await this.page.$$('.container a');
