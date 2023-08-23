@@ -3,6 +3,7 @@ import { ScrapperIndeed } from '../bot/scrapper/scrapperIndeed'
 import { ScrapperOptions } from '../bot/scrapper/types'
 import fs from 'fs';
 import path from 'path';
+import { createObjectCsvWriter } from 'csv-writer';
 
 export const findOffers = async (searchTerm: string) => {
     console.log('Scrapping...');
@@ -19,7 +20,25 @@ export const findOffers = async (searchTerm: string) => {
     const offers = await scrapper.getJobOffers();
     console.log(`Found ${offers.length} job offers:`);
 
-    const offersToSave = offers.map(offer => ({
+    const offersToSaveCSV = createObjectCsvWriter({
+        path: path.join(__dirname, '../../scrap-results/results.csv'),
+        header: [
+            {id: 'title', title: 'Title'},
+            {id: 'description', title: 'Description'},
+            {id: 'company', title: 'Company'},
+            {id: 'salaryFrom', title: 'Salary From'},
+            {id: 'salaryTo', title: 'Salary To'},
+            {id: 'currency', title: 'Currency'},
+            {id: 'offerURL', title: 'Offer URL'},
+            {id: 'technologies', title: 'Technologies'},
+            {id: 'addedAt', title: 'Added At'}
+        ]
+    });
+    
+    await offersToSaveCSV.writeRecords(offers);
+
+
+    const offersToSaveJSON = offers.map(offer => ({
         Title: offer.title,
         Description: offer.description,
         Company: offer.company,
@@ -32,7 +51,7 @@ export const findOffers = async (searchTerm: string) => {
     }));
 
     const outputPath = path.join(__dirname, '../../scrap-results/results.json');
-    fs.writeFileSync(outputPath, JSON.stringify(offersToSave, null, 2));
+    fs.writeFileSync(outputPath, JSON.stringify(offersToSaveJSON, null, 2));
 
     offers.forEach(offer => {
         console.log('Title:', offer.title);
