@@ -1,0 +1,156 @@
+[
+  {
+    "Title": "Frontend Web Game Developer",
+    "Description": "",
+    "Company": "Optimo Development",
+    "Salary_From": "15000",
+    "Salary_To": "20000",
+    "Currency": "PLN",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146659-frontend-web-game-developer-lodz-optimo-development",
+    "Technologies": [
+      "TypeScript",
+      "OOP",
+      "ECMAScript",
+      "PIXI.js",
+      "WebAPI"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "Regular Front-end Developer",
+    "Description": "",
+    "Company": "Solvbot",
+    "Salary_From": "9200",
+    "Salary_To": "23200",
+    "Currency": "PLN",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146446-regular-front-end-developer-krakow-solvbot",
+    "Technologies": [
+      "React",
+      "JavaScript",
+      "CSS",
+      "SCSS",
+      "HTML"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "Senior Front End Developer",
+    "Description": "",
+    "Company": "Luxoft Poland",
+    "Salary_From": "unknown",
+    "Salary_To": "unknown",
+    "Currency": "unknown",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146635-senior-front-end-developer-luxoft-poland",
+    "Technologies": [
+      "CSS",
+      "HTML",
+      "JavaScript",
+      "REST",
+      "React"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "Senior FrontEnd DeveloperSpecial Offer",
+    "Description": "",
+    "Company": "Special Offer",
+    "Salary_From": "22000",
+    "Salary_To": "32000",
+    "Currency": "PLN",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146630-senior-frontend-developer-katowice-appvelocity",
+    "Technologies": [
+      "React JS",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "React Native"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "ALM Polarion Application Developer",
+    "Description": "",
+    "Company": "R&D Center Viessmann",
+    "Salary_From": "unknown",
+    "Salary_To": "unknown",
+    "Currency": "unknown",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146418-alm-polarion-application-developer-wroclaw-r-d-center-viessmann",
+    "Technologies": [
+      "JavaScript",
+      "HTML"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "Front-end Developer",
+    "Description": "",
+    "Company": "Sii Polska",
+    "Salary_From": "8500",
+    "Salary_To": "13000",
+    "Currency": "PLN",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146216-front-end-developer-warszawa-gdansk-wroclaw-poznan-krakow-lodz-lublin-katowice-rzeszow-bydgoszcz-bialystok-czestochowa-gliwice-pila-szczecin-kielce-torun-sii-polska",
+    "Technologies": [
+      "JavaScript",
+      "Angular / ReactJS / VueJS"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "Front-end Developer",
+    "Description": "",
+    "Company": "Sii Polska",
+    "Salary_From": "13000",
+    "Salary_To": "23000",
+    "Currency": "PLN",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146215-front-end-developer-warszawa-gdansk-wroclaw-poznan-krakow-lodz-lublin-katowice-rzeszow-bydgoszcz-bialystok-czestochowa-gliwice-pila-szczecin-kielce-torun-sii-polska",
+    "Technologies": [
+      "JavaScript",
+      "Angular / ReactJS / VueJS"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "FrontEnd Developer",
+    "Description": "",
+    "Company": "Asseco Data Systems S.A.",
+    "Salary_From": "unknown",
+    "Salary_To": "unknown",
+    "Currency": "unknown",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146591-frontend-developer-szczecin-asseco-data-systems-s-a",
+    "Technologies": [
+      "Angular",
+      "CSS3/SCSS/SASS",
+      "HTML"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "Senior Web Developer (Angular)",
+    "Description": "",
+    "Company": "Motorola Solutions Systems Polska Sp.z.o.o",
+    "Salary_From": "unknown",
+    "Salary_To": "unknown",
+    "Currency": "unknown",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/145641-senior-web-developer-angular-krakow-motorola-solutions-systems-polska-sp-z-o-o",
+    "Technologies": [
+      "Angular",
+      "JavaScript"
+    ],
+    "Added_At": ""
+  },
+  {
+    "Title": "Front-End Engineer for Cloud  Services",
+    "Description": "",
+    "Company": "Samsung R&D Institute Poland",
+    "Salary_From": "unknown",
+    "Salary_To": "unknown",
+    "Currency": "unknown",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/145915-front-end-engineer-for-cloud-services-warszawa-samsung-r-d-institute-poland",
+    "Technologies": [
+      "TypeScript",
+      "JavaScript",
+      "React"
+    ],
+    "Added_At": ""
+  }
+]
