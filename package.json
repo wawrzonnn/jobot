@@ -1,18 +1,19 @@
 {
-  "scripts": {
-    "server": "ts-node ./src/server.ts",
-    "scrap:offers": "ts-node ./src/scripts/findOffers.ts"
-  },
-  "devDependencies": {
-    "@types/node": "^18.15.7",
-    "@types/puppeteer": "^7.0.4",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.2"
-  },
-  "dependencies": {
-    "csv-writer": "^1.6.0",
-    "puppeteer": "^21.0.3",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
-  }
+	"scripts": {
+		"server": "ts-node ./src/server.ts",
+		"scrap:offers": "ts-node ./src/scripts/runScrapper.ts"
+	},
+	"devDependencies": {
+		"@types/node": "^18.15.7",
+		"@types/puppeteer": "^7.0.4",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.0.2"
+	},
+	"dependencies": {
+		"csv-writer": "^1.6.0",
+		"puppeteer": "^21.0.3",
+		"puppeteer-extra": "^3.3.6",
+		"puppeteer-extra-plugin-stealth": "^2.11.2",
+		"yargs": "^17.7.2"
+	}
 }

@@ -1,5 +1,18 @@
 [
   {
+    "Title": "Flutter Frontend Developer - Full-Time - Wrocław",
+    "Description": "",
+    "Company": "Workbase",
+    "Salary_From": "8200",
+    "Salary_To": "24800",
+    "Currency": "PLN",
+    "Offer_URL": "https://bulldogjob.pl/companies/jobs/146107-flutter-frontend-developer-full-time-wroclaw-wroclaw-workbase",
+    "Technologies": [
+      "Flutter"
+    ],
+    "Added_At": ""
+  },
+  {
     "Title": "Frontend Web Game Developer",
     "Description": "",
     "Company": "Optimo Development",
@@ -139,18 +152,113 @@
     "Added_At": ""
   },
   {
-    "Title": "Front-End Engineer for Cloud  Services",
-    "Description": "",
-    "Company": "Samsung R&D Institute Poland",
+    "Title": "Junior Frontend Developer - Full-time, Remote",
+    "Description": "Are you a young software developer, enthusiastic and eager to build and ship amazing products?\n Do you have high standards for code quality and user experiences?",
+    "Company": "Bluelight Consulting",
+    "Salary_From": "65.7K",
+    "Salary_To": "83.2K",
+    "Currency": "$",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=bf6342d046e82599&fccid=a8bcbb5ebbd3ed25&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-07-24"
+  },
+  {
+    "Title": "Frontend Developer",
+    "Description": "Solid understanding of core javascript principles and frontend design principles.\n SANTA CLARA /ENGINEERING – ENGINEERING /FULL-TIME/ HYBRID.",
+    "Company": "LeanData",
     "Salary_From": "unknown",
     "Salary_To": "unknown",
     "Currency": "unknown",
-    "Offer_URL": "https://bulldogjob.pl/companies/jobs/145915-front-end-engineer-for-cloud-services-warszawa-samsung-r-d-institute-poland",
-    "Technologies": [
-      "TypeScript",
-      "JavaScript",
-      "React"
-    ],
-    "Added_At": ""
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=89e7214519c1d810&fccid=c2aee9ad1ed3b1ec&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-08-23"
+  },
+  {
+    "Title": "Middle Frontend Developer ReactJS/ Remote",
+    "Description": "We are looking for a Middle Frontend Developer ReactJS / React Native to join our TNG Team building next-generation microservice-based enterprise applications.",
+    "Company": "HRS",
+    "Salary_From": "86K",
+    "Salary_To": "109K",
+    "Currency": "$",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=0a67dff16c0f2147&fccid=a3d4febf41ffb9d4&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-07-24"
+  },
+  {
+    "Title": "Frontend React Developer",
+    "Description": "Front End React Developer, Speakeasy.\n (40% of the company is US-based; 60% is outside the U.S.).\n The Elixxir Team from xx network is looking for a Front End…",
+    "Company": "Blockchain Talents",
+    "Salary_From": "unknown",
+    "Salary_To": "unknown",
+    "Currency": "unknown",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=e8204d57ff143dba&fccid=734623aba8b7a021&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-07-24"
+  },
+  {
+    "Title": "React Native Developer",
+    "Description": "We are looking for a crypto-anarchist strong React Native developer, who understands and thrives for the value of privacy, and wants to contribute to an open…",
+    "Company": "Blockchain Talents",
+    "Salary_From": "unknown",
+    "Salary_To": "unknown",
+    "Currency": "unknown",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=d518616bc4410225&fccid=734623aba8b7a021&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-07-24"
+  },
+  {
+    "Title": "FRONTEND DEVELOPER",
+    "Description": "San Diego, CA, United States - Remote.\n We are a global digital agency comprised of strategists, creatives, media experts, data scientists, and engineers driven…",
+    "Company": "Mindgruve",
+    "Salary_From": "73.8K",
+    "Salary_To": "93.5K",
+    "Currency": "$",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=9506d41d81ab6d28&fccid=465975dfc844caca&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-08-23"
+  },
+  {
+    "Title": "Software Engineer (Frontend)",
+    "Description": "Hatch IT is partnering with an AI technology company to find a Front-End Software Engineer.\n Our client is looking for an experienced Front End Engineer to join…",
+    "Company": "Hatch IT",
+    "Salary_From": "unknown",
+    "Salary_To": "unknown",
+    "Currency": "unknown",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=c70101e14bfcc4d1&fccid=aa45e6dceb2005ba&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-08-23"
+  },
+  {
+    "Title": "Frontend Development",
+    "Description": "INet hires frontend developers from all over, but many people commute from areas like Pewaukee, Waukesha, New Berlin, Milwaukee, Wauwatosa, West Allis,…",
+    "Company": "iNET-Web",
+    "Salary_From": "70.7K",
+    "Salary_To": "89.6K",
+    "Currency": "$",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=222366d365897cd9&fccid=6e0d672947f5eee4&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-07-24"
+  },
+  {
+    "Title": "Frontend Engineer",
+    "Description": "Assist in developing and implementing user interface components using modern frontend frameworks and workflows.\n Join us to be a part of this exciting journey.",
+    "Company": "Rephrase.ai",
+    "Salary_From": "110K",
+    "Salary_To": "139K",
+    "Currency": "$",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=93e2baa67b73df54&fccid=be441848e77aad46&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-07-24"
+  },
+  {
+    "Title": "HTML/CSS Coder",
+    "Description": "Creating HTML Pages in HTML5/CSS3 and JavaScript/jQuery.\n Maintenance of the sites and updating them.\n Ensuring design colours, fonts, images are in tune with…",
+    "Company": "Richsoft",
+    "Salary_From": "67.8K",
+    "Salary_To": "85.9K",
+    "Currency": "$",
+    "Offer_URL": "https://www.indeed.com/rc/clk?jk=f7462b58d3e7ffca&fccid=b96943183fcbcbc7&vjs=3",
+    "Technologies": [],
+    "Added_At": "2023-07-24"
   }
 ]
