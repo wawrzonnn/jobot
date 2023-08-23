@@ -40,8 +40,8 @@ export class ScrapperIndeed extends ScrapperBase {
 		if (!this.page) {
 			throw new Error('Page has not been initialized. Please call initialize() first.')
 		}
-
-		const jobOffersLiElements = await this.page.$$('.jobsearch-ResultsList li')
+	
+const jobOffersLiElements = await this.page.$$('.css-zu9cdh li');
 		const offers = await Promise.all(
 			jobOffersLiElements.map(async offer => {
 				const salaryText = await this.extractFromElement(offer, '.estimated-salary > span')

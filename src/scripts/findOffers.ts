@@ -5,19 +5,27 @@ import fs from 'fs';
 import path from 'path';
 import { createObjectCsvWriter } from 'csv-writer';
 
-export const findOffers = async (searchTerm: string) => {
+export const findOffers = async (searchTerm: string, limit: number = 10) => {
     console.log('Scrapping...');
     const options: ScrapperOptions = {
         searchValue: searchTerm,
-        maxRecords: 10,
+        maxRecords: limit,
     };
 
-    const scrapper = new ScrapperBulldogJob(options);
 
-    await scrapper.initialize();
-    await scrapper.navigate();
+    const bulldogScrapper = new ScrapperBulldogJob(options);
+    await bulldogScrapper.initialize();
+    await bulldogScrapper.navigate();
+    const bulldogOffers = await bulldogScrapper.getJobOffers();
+    await bulldogScrapper.close();
 
-    const offers = await scrapper.getJobOffers();
+    const indeedScrapper = new ScrapperIndeed(options);
+    await indeedScrapper.initialize();
+    await indeedScrapper.navigate();
+    const indeedOffers = await indeedScrapper.getJobOffers();
+    await indeedScrapper.close();
+
+    const offers = [...bulldogOffers, ...indeedOffers];
     console.log(`Found ${offers.length} job offers:`);
 
     const offersToSaveCSV = createObjectCsvWriter({
@@ -66,8 +74,5 @@ export const findOffers = async (searchTerm: string) => {
         console.log('----------');
     });
 
-    await scrapper.close();
 }
 
-const searchTerm = process.argv[2] || 'frontend'; 
-findOffers(searchTerm);
