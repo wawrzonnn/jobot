@@ -62,6 +62,7 @@ export class ScrapperBulldogJob extends ScrapperBase {
 				} catch (error) {
 					console.error('error:', error)
 				}
+                
 
 				return {
 					title,
