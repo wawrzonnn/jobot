@@ -13,4 +13,5 @@ export interface JobOffer {
 	offerURL: string
 	technologies: string[]
 	addedAt: string
+
 }
