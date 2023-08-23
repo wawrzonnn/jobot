@@ -4,7 +4,7 @@ import { Browser, Page } from 'puppeteer';
 
 puppeteer.use(StealthPlugin());
 
-export abstract class ScrapperBase {
+export class ScrapperBase {
   protected browser: Browser | null = null;
   protected page: Page | null = null;
 
@@ -12,9 +12,6 @@ export abstract class ScrapperBase {
     this.browser = await puppeteer.launch({ headless: false, defaultViewport: null });
     this.page = await this.browser.newPage();
   }
-
-  abstract navigate(): Promise<void>;
-  abstract getJobOffers(): Promise<any>;
 
   async extractFromElement(element: any | null, selector: string, attribute?: string): Promise<string> {
     if (!this.page || !element) return '';

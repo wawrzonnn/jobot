@@ -27,8 +27,8 @@ export class ScrapperBulldogJob extends ScrapperBase {
 		const match = salaryText.match(regex)
 
 		if (match) {
-			const salaryFrom = match[1].replace(/\s/g, '') 
-			const salaryTo = match[2].replace(/\s/g, '') 
+			const salaryFrom = match[1].replace(/\s/g, '')
+			const salaryTo = match[2].replace(/\s/g, '')
 			const currency = match[3]
 
 			return { salaryFrom, salaryTo, currency }
@@ -36,79 +36,47 @@ export class ScrapperBulldogJob extends ScrapperBase {
 		return { salaryFrom: 'unknown', salaryTo: 'unknown', currency: 'unknown' }
 	}
 
-    async getJobOffers(): Promise<JobOffer[]> {
-        if (!this.page) {
-            throw new Error('Page has not been initialized. Please call initialize() first.');
-        }
+	async getJobOffers(): Promise<JobOffer[]> {
+		if (!this.page) {
+			throw new Error('Page has not been initialized. Please call initialize() first.')
+		}
 
-//znajdujemy jeden element <a> w klasie .container ( oferta pracy )
-        const elementA = await this.page.$('.container a'); 
-        if (elementA) {
-            const link = await elementA.evaluate(node => node.getAttribute('href'));
-            // przechodzimy do linku
-            await this.page.goto(link, { waitUntil: 'networkidle0' });  // czekamy aż załaduje się cała strona
-            // pobieramy content z h1
-            const h1Content = await this.page.$eval('h1', h2 => h2.textContent);
-            console.log('h1:', h1Content);
-        } else {
-            console.log('nie znaleziono h1');
-        } // no i to działa pięknie
-        
+		const jobOffersLiElements = await this.page.$$('.container a')
+		const offers = await Promise.all(
+			jobOffersLiElements.map(async offer => {
+				const [salaryText, title, description, company, technologies, offerURL] = await Promise.all([
+					this.extractFromElement(offer, '.text-dm div'),
+					this.extractFromElement(offer, 'div > h3'),
+					this.extractFromElement(offer, '.job-snippet'),
+					this.extractFromElement(offer, '.text-xxs'),
+					this.extractTechStackFromOffer(offer, 'span.py-2'),
+					offer.evaluate(a => a.getAttribute('href')),
+				])
 
-        //teraz spróbujemy znaleźć ich kilka i wyświetlić wszystkie
-        const h1Contents = [];
-        const elementyA = await this.page.$$('.container a');
-        
-        for (const elemencik of elementyA) {
-            try {
-                const link = await elemencik.evaluate(a => a.getAttribute('href'));
-                await this.page.goto(link);
-                const h1Content = await this.page.$eval('h1', h1 => h1.textContent.trim());
-                h1Contents.push(h1Content);
-                await this.page.goBack({ waitUntil: 'networkidle0' });
-            } catch (error) {
-                console.error('Error while fetching h1:', error);
-            }
-        }// no tutaj już próbowałem złapać to na wiele sposobów :(
+				const { salaryFrom, salaryTo, currency } = await this.parseSalary(salaryText)
 
+				let addedAt = ''
+				try {
+					await this.page.goto(offerURL, { waitUntil: 'networkidle0' })
+					addedAt = await this.page.$eval('h1', h1 => h1.textContent.trim())
+				} catch (error) {
+					console.error('error:', error)
+				}
 
-        const jobOffersLiElements = await this.page.$$('.container a');
-        const offers = await Promise.all(
-            jobOffersLiElements.map(async offer => {
-                const [salaryText, title, description, company, technologies, offerURL] = await Promise.all([
-                    this.extractFromElement(offer, '.text-dm div'),
-                    this.extractFromElement(offer, 'div > h3'),
-                    this.extractFromElement(offer, '.job-snippet'),
-                    this.extractFromElement(offer, '.text-xxs'),
-                    this.extractTechStackFromOffer(offer, 'span.py-2'),
-                    offer.evaluate(a => a.getAttribute('href'))
-                ]);
-    
-                const { salaryFrom, salaryTo, currency } = await this.parseSalary(salaryText);
-    
-                let addedAt = ''; 
-                // try {
-               
-                //     await this.page.goto(offerURL, { waitUntil: 'networkidle0' });
-                //     addedAt = await this.page.$eval('h1', h1 => h1.textContent.trim());
-                // } catch (error) {
-                //     console.error('chujnia z grzybnia:', error);
-                // }
-    
-                return {
-                    title,
-                    description,
-                    company,
-                    salaryFrom,
-                    salaryTo,
-                    currency,
-                    offerURL,
-                    technologies,
-                    addedAt,
-                };
-            })
-        );
-    
-        return offers.filter(offer => offer && offer.title).slice(0, this.options.maxRecords);
-    }
+				return {
+					title,
+					description,
+					company,
+					salaryFrom,
+					salaryTo,
+					currency,
+					offerURL,
+					technologies,
+					addedAt,
+				}
+			})
+		)
+
+		return offers.filter(offer => offer && offer.title).slice(0, this.options.maxRecords)
+	}
 }
