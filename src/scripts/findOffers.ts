@@ -1,6 +1,8 @@
 import { ScrapperBulldogJob } from '../bot/scrapper/scrapperBulldogJob';
 import { ScrapperIndeed } from '../bot/scrapper/scrapperIndeed'
 import { ScrapperOptions } from '../bot/scrapper/types'
+import fs from 'fs';
+import path from 'path';
 
 export const findOffers = async (searchTerm: string) => {
     console.log('Scrapping...');
@@ -16,6 +18,22 @@ export const findOffers = async (searchTerm: string) => {
 
     const offers = await scrapper.getJobOffers();
     console.log(`Found ${offers.length} job offers:`);
+
+    const offersToSave = offers.map(offer => ({
+        Title: offer.title,
+        Description: offer.description,
+        Company: offer.company,
+        Salary_From: offer.salaryFrom,
+        Salary_To: offer.salaryTo,
+        Currency: offer.currency,
+        Offer_URL: offer.offerURL,
+        Technologies: offer.technologies,
+        Added_At: offer.addedAt
+    }));
+
+    const outputPath = path.join(__dirname, '../../scrap-results/results.json');
+    fs.writeFileSync(outputPath, JSON.stringify(offersToSave, null, 2));
+
     offers.forEach(offer => {
         console.log('Title:', offer.title);
         console.log('Description:', offer.description);
