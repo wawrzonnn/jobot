@@ -4,14 +4,16 @@ import { findOffers } from './scripts/findOffers'
 const PORT = process.env.PORT || 4200
 
 const server: Server = createServer(async (request: IncomingMessage, response: ServerResponse) => {
-    if (request.url === "/scrape") {
+    if (request.url?.startsWith("/offers/")) {
         try {
-            const searchTerm = new URL(request.url, `http://${request.headers.host}`).searchParams.get('searchValue') || 'front-end-developer';
-            const offers = await findOffers(searchTerm);
+            const searchValue = request.url.split("/")[2]; 
+            const limit = new URL(request.url, `http://${request.headers.host}`).searchParams.get('limit') || '10';
+            
+            const offers = await findOffers(searchValue, Number(limit));
             response.writeHead(200, { 'Content-Type': 'application/json' });
             response.end(JSON.stringify(offers));
         } catch (error) {
-            console.error("Error while scraping:", error);
+            console.error("Error while fetching offers:", error);
             response.writeHead(500, { 'Content-Type': 'text/plain' });
             response.end('Internal Server Error');
         }
