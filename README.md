@@ -18,3 +18,5 @@ This project is a bot for scrapping tech job boards.
 - Bot should serve endpoint for getting job offers based on specific search value
 - User should be able to generate list of job offers based on specific search value using CLI
 - User should be able to parametrize the amount of records found
+
+### LIVE PREVIEW: <a href="https://jobottt.onrender.com/">Click</a>
