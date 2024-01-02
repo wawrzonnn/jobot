@@ -1,5 +1,6 @@
 <h1 align="center">
   🤖 Jobot
+  <br>
   <p align="center">
     <img src="./docs/jobotLogo.png" alt="Jobot Logo"/>
   </p>
